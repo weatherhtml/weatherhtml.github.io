@@ -1,13 +1,17 @@
 <!--WeatherHTML16 Default Theme-->
-<!--Version 1.0.1-->
+<!--Version 1.0.2-->
 <!---->
 <!--How to code for WeatherHTML16-->
+<!---->
 <!--There are various callouts in the code that have an exclamation mark (!) before them.-->
+<!---->
 <!--These include: wallpaper, icon, temperature, and condition.-->
+<!---->
 <!--These will get replaced with the various data collected when running the shortcut.-->
+<!---->
 <!--If you change the callouts in the code, you must also change them in the shortcut.-->
 <!---->
-<!--This only works with the <canvas> element currently.-->
+<!--For simple layouts, use screen percentages for the temperature, condition, and icon positions which allows for the most device support.-->
 <!---->
 <!DOCTYPE HtML>
 <html>
@@ -27,10 +31,10 @@
         window.onload = () => {
             var canvas1 = document.getElementById("canvas1");
             var ctx1 = canvas1.getContext("2d");
-            img1 = document.getElementById("wallpaper");
+            var wallpaper = document.getElementById("wallpaper");
             canvas1.width = screen.width * 3;
             canvas1.height = screen.height * 3;
-            ctx1.drawImage(img1, 0, 0, canvas1.width, canvas1.height);
+            ctx1.drawImage(wallpaper, 0, 0, canvas1.width, canvas1.height);
             var grd = ctx1.createLinearGradient(0, 0, canvas1.width, canvas1.height);
             grd.addColorStop(1, "rgba(0, 0, 0, 0.0)");
             grd.addColorStop(0, "rgba(0, 0, 0, 0.6)");
@@ -39,20 +43,23 @@
             ctx1.font = "90px -apple-system, BlinkMacSystemFont, sans-serif";
             ctx1.fillStyle = "white";
             ctx1.textAlign = "center";
-            ctx1.fillText("!temperature", canvas1.width / 2, canvas1.height - 610 * 3);
-            ctx1.fillText("!condition", canvas1.width / 2, canvas1.height - 570 * 3);
+            var temperaturePosition = (screen.height * -0.28403) + screen.height;
+            var conditionPosition = (screen.height * -0.33098) + screen.height;
+            ctx1.fillText("!temperature", canvas1.width / 2, canvas1.height - temperaturePosition * 3);
+            ctx1.fillText("!condition", canvas1.width / 2, canvas1.height - conditionPosition * 3);
             //
             //
             //
             var canvas2 = document.getElementById("canvas2");
             var ctx2 = canvas2.getContext("2d");
-            var img2 = document.getElementById("icon");
+            var icon = document.getElementById("icon");
             canvas2.height = screen.height * 3;
             canvas2.width = screen.width * 3;
-            iconWidth = img2.width;
-            iconHeight = img2.height;
+            iconWidth = icon.width;
+            iconHeight = icon.height;
             ctx2.imageSmoothingEnabled = true;
-            ctx2.drawImage(img2, (canvas2.width / 2) - (iconWidth / 2), canvas2.height - 550 * 3, iconWidth, iconHeight);
+            var iconPosition = (screen.height * -0.35449) + screen.height;
+            ctx2.drawImage(icon, (canvas2.width / 2) - (iconWidth / 2), canvas2.height - iconPosition * 3, iconWidth, iconHeight);
             //
             //
             //
