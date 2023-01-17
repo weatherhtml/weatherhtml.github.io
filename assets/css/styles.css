@@ -45,7 +45,7 @@ img {
 	height: auto;
 	left: 50%;
 	transform: translateX(-50%);
-	overflow: hidden;
+	background-color: red;
 }
 
 li {
