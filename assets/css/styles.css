@@ -90,7 +90,7 @@ a {
 
 .fade-in {
 	opacity: 0;
-	transition: opacity 1.5s;
+	transition: opacity 3s;
 }
 
 /*IDs*/
