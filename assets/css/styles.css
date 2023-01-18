@@ -1,4 +1,5 @@
 body {
+	margin: 0;
 	max-width: 1350px;
 	background-color: #202124;
 	overflow-x: hidden;
@@ -75,9 +76,8 @@ footer {
 .content {
 	display: block;
 	position: relative;
+	margin: 0 auto;
 	width: 60%;
-	left: 50%;
-	transform: translateX(-50%);
   	transition: ease all 1.5s;
   	overflow-x: hidden;
 }
@@ -167,7 +167,6 @@ footer {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 2;
-
 }
 
 /*Media Queries*/
