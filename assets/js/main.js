@@ -1,3 +1,7 @@
+window.onload = () => {
+    fade();
+}
+
 function fade() {
 
     var fadeIn = document.querySelectorAll(".fade-in");
