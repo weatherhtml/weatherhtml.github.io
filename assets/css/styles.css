@@ -180,3 +180,15 @@ footer {
 		width: 90%;
 	}
 }
+
+@media screen and (max-width: 700px) {
+	.featuredImage {
+		scale: 1.2;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	br {
+		line-height: 30px;
+	}
+}
