@@ -8,7 +8,7 @@ function fade() {
 
     for (var i = 0; i < fadeIn.length; i++) {
 
-        var bottomOfObject = fadeIn[i].offsetTop + window.innerHeight / fadeIn[i].offsetTop;
+        var bottomOfObject = fadeIn[i].offsetTop + window.innerHeight / 2;
         var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         var windowHeight = window.innerHeight || document.documentElement.offsetHeight;
         var bottomOfWindow = scrollTop + windowHeight;
