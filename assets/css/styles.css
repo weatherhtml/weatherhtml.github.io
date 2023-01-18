@@ -79,8 +79,6 @@ footer {
 .content {
 	display: block;
 	position: relative;
-	margin: 0;
-	padding: 25px;
 	width: 60%;
 	left: 50%;
 	transform: translateX(-50%);
