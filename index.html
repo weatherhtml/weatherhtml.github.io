@@ -12,11 +12,11 @@
     <div class="content">
     	<div class="fade-in">
         <h1>🌤️ WeatherHTML16</h1>
-        <h3>Version: 1.0.1
-            <br />Supported iOS Versions: 16.2 - 16.x
-            <br />Last Updated: Jan 18, 2023
-        </h3>
-        <p>Introducing WeatherHTML16, a lightweight minimal weather widget for iOS.</p>
+        <h2>A lightweight minimal weather widget for iOS</h2>
+        <h2>Version: 1.0.1
+        	<br />Supported iOS Versions: 16.2 - 16.x
+        	<br />Last Updated: Jan 18, 2023
+        </h2>
     	</div>
         <br />
         <br />
@@ -41,8 +41,37 @@
                 <li>Temperature</li>
                 <li>Condition</li>
                 <li>Weather icons</li>
-                <li>Ability to set a wallpaper image</li>
+                <li>Ability to set a desired wallpaper</li>
             </ul>
+        </div>
+        <br />
+        <div class="fade-in">
+            <h2>Setup Guide:</h2>
+            <h3>Applications Needed:</h3>
+            <ul>
+                <li><a href="https://apps.apple.com/us/app/shortcuts/id1462947752">Shortcuts</a></li>
+                <li><a href="https://apps.apple.com/us/app/files/id1232058109">Files</a></li>
+            </ul>
+            <h3>Set Up WeatherHTML16:</h3>
+            <p>To set up WeatherHTML16, <a href="#download">download</a> the most recent version below. When WeatherHTML16 is run for the first time, please accept all the prompts. Once the setup is completed, a prompt will pop up notifying the setup is complete.</p>
+            <h3>Automating WeatherHTML16:</h3>
+            <p>In order for WeatherHTML16 to refresh, some time-based automations need to be created inside of the Shortcuts app. To setup the automations:</p>
+            <ul>
+                <li>Navigate to the "Automations" tab</li>
+                <li>Tap the plus button in the top right-hand corner</li>
+                <li>Tap on "Create Personal Automation"</li>
+                <li>Choose "Time of Day"</li>
+                <li>Set the time of day with the time picker</li>
+                <li>Tap on next in the top right-hand corner</li>
+                <li>Tap on "Add Action"</li>
+                <li>In the search bar, type "run" and choose "Run Shortcut"</li>
+                <li>Tap on the faded "Shortcut" in the action</li>
+                <li>Scroll down and choose WeatherHTML16</li>
+                <li>Tap on next in the top right-hand corner</li>
+                <li>Toggle off "Ask Before Running"</li>
+                <li>Tap on done in the top right-hand corner to finish</li>
+            </ul>
+            <p>It is reccomended to set the automations starting at 12:00 a.m. and ending at 11:00 p.m. This will refresh WeatherHTML16 ever hour.</p>
         </div>
         <br />
         <div class="fade-in">
@@ -51,6 +80,7 @@
             <h3>Version 1.0.1</h3>
             <p>Added better device support to the code. Although the widget will appear better positioned on some devices compared to others, it should work on all iPhones that support iOS 16.2 - 16.x.</p>
             <br />
+            <div id="download"></div>
             <div id="downloadButton" class="buttonContainer">
                 <div class="buttonText">Download Version 1.0.1</div>
             </div>
