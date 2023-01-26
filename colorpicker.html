@@ -1,0 +1,90 @@
+<!DOCTYPE HTmL>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTML Color Picker by I.A.</title>
+    <style>
+        body {
+            max-width: 100%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            background-color: white;
+            overflow-x: hidden;
+        }
+
+        .colorPicker {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .gradientBackground {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
+            opacity: 1.0;
+            z-index: -1;
+        }
+
+        .tapTextContainer {
+        	display: block;
+        	position: absolute;
+        	margin: 0 auto;
+        	width: 100%;
+        	top: 50%;
+        	left: 50%;
+        	transform: translate(-50%, -50%);
+        	z-index: 2;
+        }
+
+        .tapText {
+        	display: block;
+        	position: relative;
+        	width: 100%;
+        	font-family: "Helvetica";
+        	font-weight: "bold";
+        	font-size: 32pt;
+   			text-align: center;
+        	color: white;
+        	text-shadow: 0px 0px 21px rgba(0, 0, 0, .50);
+        }
+    </style>
+</head>
+
+<body>
+	<div class="tapTextContainer">
+		<p class="tapText">TAP TO CHOOSE A COLOR</p>
+	</div>
+    <input id="picker" class="colorPicker" type="color" />
+    <div class="gradientBackground"></div>
+    <script>
+        var picker = document.getElementById("picker");
+        var output = document.getElementById("output");
+        picker.onchange = () => {
+            if (navigator.clipboard) {
+                console.log("yes");
+                navigator.clipboard.writeText(picker.value)
+                    .then(() => alert(picker.value + " copied to clipboard."))
+            } else {
+                console.log("no");
+            }
+        }
+    </script>
+</body>
+
+</html>
