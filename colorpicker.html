@@ -37,7 +37,7 @@
             background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
             backdrop-filter: blur(50px);
             -webkit-backdrop-filter: blur(50px);
-            opacity: 1.0;
+            opacity: 0;
             z-index: -1;
         }
 
@@ -78,9 +78,10 @@
         picker.onchange = () => {
             if (navigator.clipboard) {
                 console.log("yes");
+                document.body.style.backgroundColor = "green";
                 navigator.clipboard.writeText(picker.value)
-                    .then(() => alert(picker.value + " copied to clipboard."))
             } else {
+                document.body.style.backgroundColor = "red";
                 console.log("no");
             }
         }
