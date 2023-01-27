@@ -73,10 +73,9 @@
     <div class="gradientBackground"></div>
     <script>
         var picker = document.getElementById("picker");
-        picker.onchange = () => {
+        picker.onpointerup = () => {
             if (navigator.clipboard) {
                 console.log("yes");
-                picker.style.display = "none";
                 document.body.style.backgroundColor = picker.value;
                 setTimeout(function() {
                     navigator.clipboard.writeText(picker.value)
