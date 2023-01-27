@@ -34,9 +34,7 @@
             width: 100%;
             height: 100%;
             background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-            backdrop-filter: blur(50px);
-            -webkit-backdrop-filter: blur(50px);
-            opacity: 0;
+            opacity: 1.0;
             z-index: -1;
         }
 
@@ -62,23 +60,42 @@
         	color: white;
         	text-shadow: 0px 0px 21px rgba(0, 0, 0, .50);
         }
+
+        .confirmBox {
+            display: none;
+            position: absolute;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+        }
     </style>
 </head>
 
 <body>
+    <div id="confirm" class="confirmBox"></div>
 	<div class="tapTextContainer">
-		<p class="tapText">TAP TO CHOOSE A COLOR</p>
+		<p id="text" class="tapText">TAP TO CHOOSE A COLOR</p>
 	</div>
     <input id="picker" class="colorPicker" type="color" />
     <div class="gradientBackground"></div>
     <script>
         var picker = document.getElementById("picker");
-        picker.onpointerup = () => {
+        var confirm = document.getElementById("confirm");
+        var text = document.getElementById("text");
+        picker.onclick = () => {
+            confirm.style.display = "block";
+            text.innerText = "TAP TO SAVE COLOR";
+        }
+        confirm.onpointerup = () => {
             if (navigator.clipboard) {
                 console.log("yes");
-                document.body.style.backgroundColor = picker.value;
                 setTimeout(function() {
                     navigator.clipboard.writeText(picker.value)
+                    window.location.url = "https://shortcuts";
                 }, 100);
             } else {
                 document.body.style.backgroundColor = "red";
