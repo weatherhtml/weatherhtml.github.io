@@ -78,7 +78,9 @@
                 console.log("yes");
                 picker.style.display = "none";
                 document.body.style.backgroundColor = picker.value;
-                navigator.clipboard.writeText(picker.value)
+                setTimeout(function() {
+                    navigator.clipboard.writeText(picker.value)
+                }, 100);
             } else {
                 document.body.style.backgroundColor = "red";
                 console.log("no");
