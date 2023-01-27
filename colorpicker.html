@@ -93,10 +93,8 @@
         confirm.onpointerup = () => {
             if (navigator.clipboard) {
                 console.log("yes");
-                setTimeout(function() {
-                    navigator.clipboard.writeText(picker.value)
-                    window.location.url = "shortcuts://";
-                }, 100);
+                navigator.clipboard.writeText(picker.value);
+                window.location.href = "shortcuts://";
             } else {
                 document.body.style.backgroundColor = "red";
                 console.log("no");
