@@ -4,100 +4,108 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HTML Color Picker by I.A.</title>
+    <title>WeatherHTML16 Color Picker</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
     <style>
-        body {
-            max-width: 100%;
-            height: auto;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 0px;
-            margin-bottom: 0px;
-            overflow-x: hidden;
-        }
-
         .colorPicker {
             display: block;
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 250px;
+            height: 50px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0;
-            z-index: 3;
+            background-color: red;
+            z-index: 1;
         }
 
-        .gradientBackground {
+        .center {
             display: block;
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-            opacity: 1.0;
-            z-index: -1;
-        }
-
-        .tapTextContainer {
-        	display: block;
-        	position: absolute;
-        	margin: 0 auto;
-        	width: 100%;
-        	top: 50%;
-        	left: 50%;
-        	transform: translate(-50%, -50%);
-        	z-index: 2;
-        }
-
-        .tapText {
-        	display: block;
-        	position: relative;
-        	width: 100%;
-        	font-family: "Helvetica";
-        	font-weight: "bold";
-        	font-size: 32pt;
-   			text-align: center;
-        	color: white;
-        	text-shadow: 0px 0px 21px rgba(0, 0, 0, .50);
-        }
-
-        .confirmBox {
-            display: none;
-            position: absolute;
-            margin: 0 auto;
-            width: 100%;
-            height: 100%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 4;
+        }
+
+        #confirm {
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <div id="confirm" class="confirmBox"></div>
-	<div class="tapTextContainer">
-		<p id="text" class="tapText">TAP TO CHOOSE A COLOR</p>
-	</div>
-    <input id="picker" class="colorPicker" type="color" />
-    <div class="gradientBackground"></div>
+    <div class="content" style="height: 100vh;">
+        <div class="fade-in">
+            <h1>🌤️ WeatherHTML16</h1>
+            <h2>A Simplistic HTML Weather Widget For iOS</h2>
+            <div class="spacer1"></div>
+            <div class="center">
+                <div class="buttonContainer">
+                    <input id="picker" class="colorPicker" type="color" />
+                    <div id="pickerText" class="buttonText">Tap to Choose a Color</div>
+                </div>
+                <div class="spacer1"></div>
+                <div id="confirm" class="buttonContainer" style="background-color: lightgreen;">
+                    <div class="buttonText">Tap to Save and Return</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
+        window.onload = () => {
+            fade();
+            deviceCheck();
+        }
+
+        function fade() {
+
+            var fadeIn = document.querySelectorAll(".fade-in");
+
+            for (var i = 0; i < fadeIn.length; i++) {
+
+                var bottomOfObject = fadeIn[i].offsetTop + window.innerHeight / fadeIn[i].offsetTop;
+                var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+                var windowHeight = window.innerHeight || document.documentElement.offsetHeight;
+                var bottomOfWindow = scrollTop + windowHeight;
+
+                if (bottomOfWindow > bottomOfObject) {
+
+                    fadeIn[i].style.opacity = "1.0";
+
+                }
+
+            };
+        };
+
+        window.addEventListener("scroll", fade);
+
+        function deviceCheck() {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                console.log("Mobile device detected");
+            } else {
+                alert("Please use a mobile device to access this page.");
+                window.location.href = "https://weatherhtml.github.io/";
+            }
+        }
+
         var picker = document.getElementById("picker");
+        var pickerText = document.getElementById("pickerText");
         var confirm = document.getElementById("confirm");
-        var text = document.getElementById("text");
-        picker.onclick = () => {
+
+        picker.ontouchstart = () => {
+            pickerText.innerText = "Tap to Change Color"
             confirm.style.display = "block";
-            text.innerText = "TAP TO SAVE COLOR";
         }
         confirm.onpointerup = () => {
             if (navigator.clipboard) {
-                console.log("yes");
+                console.log("This browser supports clipboard.");
                 navigator.clipboard.writeText(picker.value);
                 window.location.href = "shortcuts://";
             } else {
-                document.body.style.backgroundColor = "red";
-                console.log("no");
+                console.log("This browser does not support clipboard.");
+                alert("This browser does not support clipboard. Please change your default browser to Safari.");
+                window.location.href = "https://weatherhtml.github.io/";
             }
         }
     </script>
