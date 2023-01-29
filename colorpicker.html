@@ -99,13 +99,13 @@
             confirm.style.display = "block";
             setTimeout(async() => {
                         const text = await navigator.clipboard.readText();
-                        if (text.includes("/9j/")) {
+                        // if (text.includes("/9j/")) {
                             test.innerText = text;
-                        } else {
-                            console.log("Please only use this webpage with WeatherHTML.");
-                            alert("Please only use this webpage with WeatherHTML.");
-                            window.location.href = "https://weatherhtml.github.io/";
-                        }      
+                        // } else {
+                        //     console.log("Please only use this webpage with WeatherHTML.");
+                        //     alert("Please only use this webpage with WeatherHTML.");
+                        //     window.location.href = "https://weatherhtml.github.io/";
+                        // }      
                     }, 1000);
         }
         confirm.onpointerup = () => {
