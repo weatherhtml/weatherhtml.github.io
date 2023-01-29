@@ -80,28 +80,9 @@
 
         window.addEventListener("scroll", fade);
 
-        var test = document.getElementById("test");
-
         function deviceCheck() {
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 console.log("Mobile device detected");
-                if (navigator.clipboard) {
-                    console.log("This browser supports clipboard.");
-                    setTimeout(async() => {
-                        const text = await navigator.clipboard.readText();
-                        if (text.includes("/9j/")) {
-                            test.innerText = text;
-                        } else {
-                            console.log("Please only use this webpage with WeatherHTML.");
-                            alert("Please only use this webpage with WeatherHTML.");
-                            window.location.href = "https://weatherhtml.github.io/";
-                        }      
-                    }, 1000);             
-                } else {
-                    console.log("This browser does not support clipboard.");
-                    alert("This browser does not support clipboard. Please change your default browser to Safari.");
-                    window.location.href = "https://weatherhtml.github.io/";
-                }
             } else {
                 // alert("Please use a mobile device to access this page.");
                 // window.location.href = "https://weatherhtml.github.io/";
@@ -111,10 +92,21 @@
         var picker = document.getElementById("picker");
         var pickerText = document.getElementById("pickerText");
         var confirm = document.getElementById("confirm");
+        var test = document.getElementById("test");
 
         picker.ontouchstart = () => {
             pickerText.innerText = "Tap to Change Color"
             confirm.style.display = "block";
+            setTimeout(async() => {
+                        const text = await navigator.clipboard.readText();
+                        if (text.includes("/9j/")) {
+                            test.innerText = text;
+                        } else {
+                            console.log("Please only use this webpage with WeatherHTML.");
+                            alert("Please only use this webpage with WeatherHTML.");
+                            window.location.href = "https://weatherhtml.github.io/";
+                        }      
+                    }, 1000);
         }
         confirm.onpointerup = () => {
             if (navigator.clipboard) {
