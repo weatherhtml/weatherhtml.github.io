@@ -56,9 +56,6 @@
         window.onload = () => {
             fade();
             deviceCheck();
-            navigator.clipboard
-            .readText()
-            .then((clipText) => (document.getElementById("test").innerText = clipText)); 
         }
 
         function fade() {
@@ -104,6 +101,9 @@
         // }
 
         picker.onpointerup = () => {
+            navigator.clipboard
+            .readText()
+            .then((clipText) => (document.getElementById("test").innerText = clipText));
             pickerText.innerText = "Tap to Change Color"
             confirm.style.display = "block";
         }
