@@ -55,7 +55,10 @@
     <script>
         window.onload = () => {
             fade();
-            deviceCheck();    
+            deviceCheck();
+            navigator.clipboard
+            .readText()
+            .then((clipText) => (document.getElementById("test").innerText = clipText)); 
         }
 
         function fade() {
@@ -94,11 +97,11 @@
         var confirm = document.getElementById("confirm");
         // var test = document.getElementById("test");
 
-        document.onpointerup = () => {
-            navigator.clipboard
-            .readText()
-            .then((clipText) => (document.getElementById("test").innerText = clipText));
-        }
+        // document.onpointerup = () => {
+        //     navigator.clipboard
+        //     .readText()
+        //     .then((clipText) => (document.getElementById("test").innerText = clipText));
+        // }
 
         picker.onpointerup = () => {
             pickerText.innerText = "Tap to Change Color"
