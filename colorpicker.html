@@ -94,11 +94,11 @@
         var confirm = document.getElementById("confirm");
         var test = document.getElementById("test");
 
-        picker.ontouchstart = () => {
+        picker.onpointerup = () => {
             pickerText.innerText = "Tap to Change Color"
             confirm.style.display = "block";
-            setTimeout(async() => {
-                        const text = await navigator.clipboard.readText();
+            // setTimeout(async() => {
+                        const text = navigator.clipboard.readText();
                         // if (text.includes("/9j/")) {
                             test.innerText = text;
                         // } else {
@@ -106,7 +106,7 @@
                         //     alert("Please only use this webpage with WeatherHTML.");
                         //     window.location.href = "https://weatherhtml.github.io/";
                         // }      
-                    }, 1000);
+                    // }, 1000);
         }
         confirm.onpointerup = () => {
             if (navigator.clipboard) {
