@@ -80,22 +80,23 @@
 
         window.addEventListener("scroll", fade);
 
+        var test = document.getElementById("test");
+
         function deviceCheck() {
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 console.log("Mobile device detected");
                 if (navigator.clipboard) {
                     console.log("This browser supports clipboard.");
-                    var test = document.getElementById("test");
                     setTimeout(async() => {
                         const text = await navigator.clipboard.readText();
-                    }, 100);
-                    if (text.includes("/9j/")) {
-                        test.innerText = text;
-                    } else {
-                        console.log("Please only use this webpage with WeatherHTML.");
-                        alert("Please only use this webpage with WeatherHTML.");
-                        window.location.href = "https://weatherhtml.github.io/";
-                    }                   
+                        if (text.includes("/9j/")) {
+                            test.innerText = text;
+                        } else {
+                            console.log("Please only use this webpage with WeatherHTML.");
+                            alert("Please only use this webpage with WeatherHTML.");
+                            window.location.href = "https://weatherhtml.github.io/";
+                        }      
+                    }, 1000);             
                 } else {
                     console.log("This browser does not support clipboard.");
                     alert("This browser does not support clipboard. Please change your default browser to Safari.");
