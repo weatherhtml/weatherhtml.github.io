@@ -94,9 +94,7 @@
         var confirm = document.getElementById("confirm");
         var test = document.getElementById("test");
 
-        picker.onpointerup = () => {
-            pickerText.innerText = "Tap to Change Color"
-            confirm.style.display = "block";
+        document.onpointerup = () => {
             setTimeout(async() => {
                         const text = await navigator.clipboard.readText();
                         // if (text.includes("/9j/")) {
@@ -107,6 +105,11 @@
                         //     window.location.href = "https://weatherhtml.github.io/";
                         // }      
                     }, 1000);
+        }
+
+        picker.onpointerup = () => {
+            pickerText.innerText = "Tap to Change Color"
+            confirm.style.display = "block";
         }
         confirm.onpointerup = () => {
             if (navigator.clipboard) {
