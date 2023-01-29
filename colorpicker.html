@@ -83,9 +83,24 @@
         function deviceCheck() {
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 console.log("Mobile device detected");
+                if (navigator.clipboard) {
+                    console.log("This browser supports clipboard.")
+                    alert(navigator.clipboard.readText());
+                    // if (navigator.clipboard.readText().includes("/9j/")) {
+                    //     navigator.clipboard.readText() = wallpaper.src;
+                    // } else {
+                    //     console.log("Please only use this webpage with WeatherHTML.");
+                    //     alert("Please only use this webpage with WeatherHTML.");
+                    //     window.location.href = "https://weatherhtml.github.io/";
+                    // }                   
+                } else {
+                    console.log("This browser does not support clipboard.");
+                    alert("This browser does not support clipboard. Please change your default browser to Safari.");
+                    window.location.href = "https://weatherhtml.github.io/";
+                }
             } else {
-                alert("Please use a mobile device to access this page.");
-                window.location.href = "https://weatherhtml.github.io/";
+                // alert("Please use a mobile device to access this page.");
+                // window.location.href = "https://weatherhtml.github.io/";
             }
         }
 
