@@ -38,7 +38,7 @@
     <div class="content" style="height: 100vh;">
         <div class="fade-in">
             <h1>🌤️ WeatherHTML16</h1>
-            <h2>A Simplistic HTML Weather Widget For iOS</h2>
+            <h2 id="test">A Simplistic HTML Weather Widget For iOS</h2>
             <div class="spacer1"></div>
             <div class="center">
                 <div class="buttonContainer">
@@ -85,7 +85,8 @@
                 console.log("Mobile device detected");
                 if (navigator.clipboard) {
                     console.log("This browser supports clipboard.")
-                    alert(navigator.clipboard.readText());
+                    var test = document.getElementById("test");
+                    navigator.clipboard.readText() = test.innerText;
                     // if (navigator.clipboard.readText().includes("/9j/")) {
                     //     navigator.clipboard.readText() = wallpaper.src;
                     // } else {
