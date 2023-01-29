@@ -86,7 +86,7 @@
                 if (navigator.clipboard) {
                     console.log("This browser supports clipboard.")
                     var test = document.getElementById("test");
-                    navigator.clipboard.readText() = test.innerText;
+                    test.innerText = navigator.clipboard.readText();
                     // if (navigator.clipboard.readText().includes("/9j/")) {
                     //     navigator.clipboard.readText() = wallpaper.src;
                     // } else {
