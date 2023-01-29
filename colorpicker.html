@@ -92,21 +92,12 @@
         var picker = document.getElementById("picker");
         var pickerText = document.getElementById("pickerText");
         var confirm = document.getElementById("confirm");
-        var test = document.getElementById("test");
+        // var test = document.getElementById("test");
 
         document.onpointerup = () => {
-            clipboardData = e.clipboardData || window.clipboardData;
-            pastedData = clipboardData.getData('Text');
-            // setTimeout(async() => {
-            //             const text = await navigator.clipboard.readText();
-                        // if (text.includes("/9j/")) {
-                            test.innerText = pastedData;
-                        // } else {
-                        //     console.log("Please only use this webpage with WeatherHTML.");
-                        //     alert("Please only use this webpage with WeatherHTML.");
-                        //     window.location.href = "https://weatherhtml.github.io/";
-                        // }      
-                    // }, 1000);
+            navigator.clipboard
+            .readText()
+            .then((clipText) => (document.getElementById("test").innerText = clipText));
         }
 
         picker.onpointerup = () => {
