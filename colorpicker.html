@@ -35,11 +35,12 @@
 </head>
 
 <body>
-    <div class="content" style="height: 100vh;">
+    <div class="content">
         <div class="fade-in">
             <h1>🌤️ WeatherHTML16</h1>
-            <h2 id="test">A Simplistic HTML Weather Widget For iOS</h2>
-            <div class="spacer1"></div>
+        </div>
+    </div>
+        <div class="fade-in">
             <div class="center">
                 <div class="buttonContainer">
                     <input id="picker" class="colorPicker" type="color" />
@@ -51,7 +52,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <script>
         window.onload = () => {
             fade();
@@ -84,26 +84,16 @@
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 console.log("Mobile device detected");
             } else {
-                // alert("Please use a mobile device to access this page.");
-                // window.location.href = "https://weatherhtml.github.io/";
+                alert("Please use a mobile device to access this page.");
+                window.location.href = "https://weatherhtml.github.io/";
             }
         }
 
         var picker = document.getElementById("picker");
         var pickerText = document.getElementById("pickerText");
         var confirm = document.getElementById("confirm");
-        // var test = document.getElementById("test");
-
-        // document.onpointerup = () => {
-        //     navigator.clipboard
-        //     .readText()
-        //     .then((clipText) => (document.getElementById("test").innerText = clipText));
-        // }
 
         picker.onpointerup = () => {
-            navigator.clipboard
-            .readText()
-            .then((clipText) => (document.getElementById("test").innerText = clipText));
             pickerText.innerText = "Tap to Change Color"
             confirm.style.display = "block";
         }
