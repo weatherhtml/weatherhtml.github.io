@@ -57,7 +57,7 @@ var clickOff = document.getElementById("click-off");
 
 function download() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        window.open("https://weatherhtml.github.io/redirect", "_blank");
+        window.open("https://weatherhtml.github.io/redirect");
     } else {
         content.style.opacity = "0.10";
         qr.style.display = "block";
