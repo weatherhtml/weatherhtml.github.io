@@ -57,7 +57,7 @@ var clickOff = document.getElementById("click-off");
 
 function download() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        window.location.href = "https://www.icloud.com/shortcuts/4015bf71746449d399f7f5f66d7878b5";
+        window.location.href = "https://www.icloud.com/shortcuts/6424453d4339493e9fcb2c8e2ac67972";
     } else {
         content.style.opacity = "0.10";
         qr.style.display = "block";
