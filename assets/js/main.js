@@ -57,7 +57,7 @@ var clickOff = document.getElementById("click-off");
 
 function download() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        window.location.href = "https://weatherhtml.github.io/redirect";
+        window.location.href = "https://www.icloud.com/shortcuts/323ad87fef424fb1aaadd60195f85b42";
     } else {
         content.style.opacity = "0.10";
         qr.style.display = "block";
