@@ -5,7 +5,7 @@
 <!---->
 <!--There are various callouts in the code that have an exclamation mark (!) before them.-->
 <!---->
-<!--These include: wallpaper, icon, temperature, and condition.-->
+<!--These include: wallpaper, icon, temperature, condition, and textcolor.-->
 <!---->
 <!--These will get replaced with the various data collected when running the shortcut.-->
 <!---->
@@ -41,7 +41,7 @@
             ctx1.fillStyle = grd;
             ctx1.fillRect(0, 0, canvas1.width, canvas1.height);
             ctx1.font = "90px -apple-system, BlinkMacSystemFont, sans-serif";
-            ctx1.fillStyle = "white";
+            ctx1.fillStyle = "!textcolor";
             ctx1.textAlign = "center";
             var temperaturePosition = (screen.height * -0.28403) + screen.height;
             var conditionPosition = (screen.height * -0.33098) + screen.height;
