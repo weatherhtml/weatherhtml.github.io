@@ -85,7 +85,7 @@ footer {
 	display: block;
 	position: relative;
 	width: 60%;
-	max-width: 1350px;
+	max-width: 1080px;
 	left: 50%;
 	transform: translateX(-50%);
   	transition: ease all 1.5s;
