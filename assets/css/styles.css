@@ -88,7 +88,6 @@ footer {
 	max-width: 876px;
 	left: 50%;
 	transform: translateX(-50%);
-  	transition: ease all 1.5s;
   	overflow-x: hidden;
 }
 
